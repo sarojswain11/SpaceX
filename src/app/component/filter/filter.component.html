@@ -1,0 +1,41 @@
+<div class="root">
+  <h3>Filters</h3>
+  <div class="container">
+    <div class="section">
+      <h4>Launch Year</h4>
+      <div class="line"></div>
+      <div class="grid">
+        <div
+          *ngFor="let year of years"
+          [innerText]="year"
+          [ngClass]="{ 'bg-color': year == activeYear }"
+          (click)="onClickYearFilter(year)"
+        ></div>
+      </div>
+    </div>
+    <div class="section">
+      <h4>Successful Launch</h4>
+      <div class="line"></div>
+      <div class="grid">
+        <div
+          *ngFor="let flag of ['True', 'False']"
+          [innerText]="flag"
+          [ngClass]="{ 'bg-color': flag == launchFilter }"
+          (click)="onClickLaunchFilter(flag)"
+        ></div>
+      </div>
+    </div>
+    <div class="section">
+      <h4>Successful Landing</h4>
+      <div class="line"></div>
+      <div class="grid">
+        <div
+          *ngFor="let flag of ['True', 'False']"
+          [innerText]="flag"
+          [ngClass]="{ 'bg-color': flag == landingFilter }"
+          (click)="onClickLandingFilter(flag)"
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="loader" *ngIf="isloading">
+    <app-loader></app-loader>
+  </div>
+  <ng-container *ngIf="!isloading">
+    <div *ngIf="noSpacexDataFlag" class="no-data">
+      <img
+        src="https://i.pinimg.com/originals/2b/af/3b/2baf3b4b97475af83f832e475b2ee66a.png"
+        alt="No Data Found"
+      />
+    </div>
+    <div class="cards-wrapper" *ngFor="let data of spaceXDataList">
+      <div class="card">
+        <img
+          [src]="
+            data.missionPatch
+              ? data.missionPatch
+              : 'https://www.dia.org/sites/default/files/No_Img_Avail.jpg'
+          "
+          alt="Image not available"
+        />
+        <h3>{{ data.missionName }} #{{ data.flightNumber }}</h3>
+        <div>
+          <h4>Mission Id:</h4>
+          <ul>
+            <li *ngFor="let id of data.missionId">{{ id }}</li>
+          </ul>
+        </div>
+        <div id="flex">
+          <h4>Launch Year:</h4>
+          <p>{{ data.launchYear }}</p>
+        </div>
+        <div id="flex">
+          <h4>Successful Launch:</h4>
+          <p>{{ data.launchSuccess }}</p>
+        </div>
+        <div id="flex">
+          <h4>Successful Landing:</h4>
+          <p>{{ data.launchSuccess }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
